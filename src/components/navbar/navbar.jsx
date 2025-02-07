@@ -16,7 +16,7 @@ function NavbarComponent() {
                 <Navbar.Brand href="/">
                     <img
                         src="/img/Logo-RP-claro.png"
-                        height="40"
+                        height="60"
                         className="d-inline-block align-top"
                         alt="Red Package Logo"
                     />

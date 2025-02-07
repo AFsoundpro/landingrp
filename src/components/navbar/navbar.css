@@ -1,7 +1,16 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 .navbar {
     transition: all 0.3s ease;
     background-color: #212529 !important;
     box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    padding: 0;
 }
 
 .navbar-brand img {
@@ -20,6 +29,7 @@
     transition: all 0.3s ease;
     border-radius: 5px;
     position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .nav-link:hover {
@@ -56,5 +66,12 @@
     
     .nav-link:hover::after {
         width: 50%;
+    }
+}
+
+/* Ajuste responsive para el logo */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 50px;
     }
 } 
