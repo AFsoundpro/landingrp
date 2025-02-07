@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
-
+    margin: 0;
 }
 
 /*BODY*/
@@ -9,21 +8,78 @@
 body {
     background: #dd0000;
     text-align: center;
-    font: 300 20px/1.7 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.header {
-    background: url(/img/img5.jpg) no-repeat center top;
+.hero {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, 0.4)
+    ), url(/img/img5.jpg) no-repeat center center;
     background-size: cover;
-    height: 350px;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 120px 0 80px;
+    margin-top: 56px;
+    position: relative;
 }
 
-.header img {
-    height: 250px;
-    width: 350px;
+.hero h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 span {
+    color: #dc3545;
+}
+
+.hero .btn {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.hero-features {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.hero-feature {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.hero-feature:hover {
+    transform: translateY(-5px);
+}
+
+.hero-feature i {
+    color: #dc3545;
+}
+
+.hero-feature h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.hero-feature p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
 }
 
 .nav {
@@ -44,23 +100,22 @@ body {
 }
 
 .content {
-    padding: 80px 0;
+    padding: 100px 0;
+    margin: 0;
 }
 
 .who {
-    background: darkred;
-    color: #fff;
+    background: #f8f9fa;
+    color: #333;
+    position: relative;
+    overflow: hidden;
 }
 
-.who p {
-    max-width: 1055px;
-    margin: 0 auto;
-}
-
-.tittle {
+.title {
     margin-bottom: 40px;
     text-transform: uppercase;
-    font: 60px 'Stint Ultra Condensed';
+    font-family: 'Stint Ultra Condensed', cursive;
+    font-size: 3rem;
 }
 
 p {
@@ -70,94 +125,593 @@ p {
 /* SERVICIOS */
 
 .servicios {
-    color: #fff;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
 }
 
-.list-servicios {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    list-style: none;
-}
- 
-.list-servicios img {
-    position: relative;
-    z-index: 1;
-    height: 100px;
-    width: 100px;
-    margin-top: 35px;
-    background-color: #f42c2c;
-}
-
-.list-servicios figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 150px;
-    height: 190px;
-    flex-flow: column;
-}
-.list-servicios figure::after {
-    content: "";
+.servicios::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    z-index: 0;
-    background-color: #f42c2c;
-    width: 150px;
-    height: 150px;
-}
-.list-servicios li {
-    padding: 0 30px;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(220, 53, 69, 0.03) 0%, transparent 50%);
+    pointer-events: none;
 }
 
-.list-servicios figcaption {
+.service-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
     position: relative;
-    left: 0;
-    top: 45px;
-    bottom: -40px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(220, 53, 69, 0.1);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+}
+
+.service-icon i {
+    font-size: 1.5rem;
+    color: #dc3545;
+    transition: all 0.3s ease;
+}
+
+/* Restauramos el hover rojo */
+.service-card:hover .service-icon {
+    background: #dc3545;
+    transform: scale(1.1);
+}
+
+.service-card:hover .service-icon i {
+    color: white;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.service-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-features li i {
+    color: #28a745;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Ajustes responsive */
+@media (max-width: 1200px) {
+    .service-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .servicios {
+        padding: 60px 0;
+    }
+    
+    .service-card {
+        padding: 1rem;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .service-icon i {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-title {
+        font-size: 1.1rem;
+    }
+    
+    .service-description {
+        font-size: 0.85rem;
+    }
+    
+    .service-features li {
+        font-size: 0.8rem;
+    }
+}
 
 /*tarifas*/
 
 .tarifas {
-    background: url(../img/imgtarifas.jpg) no-repeat center top;
+    background: linear-gradient(rgba(220, 53, 69, 0.75), rgba(220, 53, 69, 0.75)), url(/img/img5.jpg) no-repeat center center;
     background-size: cover;
-    color: darkolivegreen;
-    text-align: left;
+    color: #fff;
+    position: relative;
+    padding: 80px 0;
 }
 
-.contain {
-    max-width: 1055px;
-    margin: 0 auto;
+.app-features-container {
+    padding-right: 20px;
 }
 
-.tarifas p {
-    max-width: 450px;
+.app-feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.btn {
-    border: 2px solid #fff;
-    padding: 10px 40px;
-    display: inline-block;
-    text-decoration: none;
-    text-transform: uppercase;
+.app-feature-card:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.app-feature-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.app-feature-icon i {
+    font-size: 1.25rem;
     color: #fff;
 }
 
-.btn:hover {
-    background-color: #f42c2c;
-    color: #FFF;
-  }
+.app-feature-content {
+    flex: 1;
+}
 
+.app-feature-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.app-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app-feature-list li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.app-feature-list li i {
+    color: #fff;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.download-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Ajustes responsive */
+@media (max-width: 992px) {
+    .app-features-container {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .app-feature-card {
+        padding: 1rem;
+    }
+
+    .app-screenshot img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .tarifas {
+        padding: 60px 0;
+    }
+
+    .app-feature-card {
+        margin-bottom: 1rem;
+    }
+
+    .app-screenshot img {
+        max-width: 100%;
+    }
+}
 
 /*Localizacion*/
 
 .localizacion {
-    color: #fff;
-    padding-bottom: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.contact-icon.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+}
+
+.contact-icon.email {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.contact-icon.location {
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+.contact-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #212529;
+}
+
+.contact-card p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-link.facebook {
+    background: #1877f2;
+}
+
+.social-link.instagram {
+    background: #e4405f;
+}
+
+.social-link.linkedin {
+    background: #0077b5;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+/* Ajustes responsive */
+@media (max-width: 992px) {
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-card {
+        margin-bottom: 1rem;
+    }
+
+    .social-link {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Al inicio del archivo, después de los resets */
+.landing-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-statement, .about-content {
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 15px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.mission-statement {
+    border-left: 5px solid #dc3545;
+}
+
+.about-content {
+    border-right: 5px solid #dc3545;
+}
+
+.mission-statement:hover, .about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+}
+
+.feature-box {
+    padding: 40px 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    background: rgba(220, 53, 69, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.1);
+    background: rgba(220, 53, 69, 0.2);
+}
+
+.cta-box {
+    background: linear-gradient(45deg, #dc3545, #e35d6a);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.features-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para las banderas */
+.flag-usa, .flag-col {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    opacity: 0.9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.flag-usa:hover, .flag-col:hover {
+    transform: scale(1.05);
+}
+
+.flag-usa {
+    left: -60px;
+    top: 20px;
+    transform: rotate(-15deg);
+}
+
+.flag-col {
+    right: -60px;
+    top: 20px;
+    transform: rotate(15deg);
+}
+
+.flag-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ajuste responsive para las banderas */
+@media (max-width: 1200px) {
+    .flag-usa, .flag-col {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 992px) {
+    .flag-usa {
+        left: 0;
+    }
+    .flag-col {
+        right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .flag-usa, .flag-col {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 60px;
+        margin: 0 10px 20px;
+        transform: none;
+    }
+    
+    .flag-usa {
+        left: auto;
+    }
+    
+    .flag-col {
+        right: auto;
+    }
+
+    .mission-statement, .about-content {
+        height: auto;
+    }
+    
+    .about-content {
+        border-right: none;
+        border-left: 5px solid #dc3545;
+    }
+
+    .feature-box {
+        padding: 30px 20px;
+    }
+}
+
+/* Estilos para la imagen de la webapp */
+.app-screenshot {
+    position: relative;
+    padding: 20px;
+}
+
+.app-screenshot img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    max-width: 100%;
+}
+
+.app-screenshot:hover img {
+    transform: translateY(-10px);
+}
+
+/* Ajustar responsive para la imagen */
+@media (max-width: 992px) {
+    .app-screenshot {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .app-screenshot img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-screenshot img {
+        max-width: 100%;
+    }
+}
+
+.email-list p {
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+}
+
+.email-list p:last-child {
+    margin-bottom: 1.5rem;
 }
